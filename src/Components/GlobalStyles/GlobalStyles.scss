@@ -3,6 +3,8 @@
 
 :root {
     --primary: #fe2c55;
+    --default-layout-height-header:60px;
+    --default-layout-width:1150px;
 }
 
 html {
@@ -11,6 +13,8 @@ html {
 
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
