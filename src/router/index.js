@@ -8,7 +8,7 @@ import Search from "~/Pages/Search/Index";
 
 const publicRoutes=[
     {
-        path: '/home',
+        path: '/',
         component: Home,
     },
     {
