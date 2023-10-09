@@ -1,16 +1,33 @@
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faSignIn, faEllipsisVertical, faEarthAsia, faCircleQuestion, faKeyboard } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
+
+import Button from '~/Components/Button';
 import styles from './Header.module.scss';
 import image from '~/assets/image';
-import Search from '~/Pages/Search/Index';
 import { Wrapper as PopperWrapper } from '~/Components/Popper';
 import { useEffect, useState } from 'react';
 import AccountItem from '~/Components/AccountItem';
+import Menu from '~/Components/Popper/Menu';
 
 const cx = classNames.bind(styles);
+const MENU_ITEM=[
+    {
+        icon:<FontAwesomeIcon icon={faEarthAsia}/>,
+        title:"English",
+    },
+    {
+        icon:<FontAwesomeIcon icon={faCircleQuestion}/>,
+        title:"FeedBack and help",
+        to:'/feedback'
+    },
+    {
+        icon:<FontAwesomeIcon icon={faKeyboard}/>,
+        title:"Keyboard shotcuts",
+    }
+]
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     useEffect(() => {
@@ -51,7 +68,18 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('action')}></div>
+                <div className={cx('action')}>
+                    <Button text >Upload</Button>
+                    <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn}></FontAwesomeIcon>}>Login</Button>
+
+                <Menu
+                items={MENU_ITEM}>
+                <button className={cx('more-btn')}>
+                        <FontAwesomeIcon icon={faEllipsisVertical}/>
+                </button>    
+                </Menu> 
+                    
+                </div>
             </div>
         </header>
     );

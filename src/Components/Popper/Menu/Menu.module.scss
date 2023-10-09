@@ -1,0 +1,35 @@
+.menu-list{
+    width: 224px;
+    .menu-item{
+        color:#fff;
+        display: flex;  
+        margin-left: 0;
+        background-color: rgb(37, 37, 37);
+        text-decoration: none;
+    }
+}
+
+
+.menu-popper{
+    padding-bottom: 8px;
+}
+
+.menu-item{
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 0;
+    font-weight: 600;
+    padding:11px 16px;
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.041);
+    }
+}
+
+.more-btn{
+    color:#fff;
+    font-size:2rem;
+    margin-left: 28px;
+    padding: 4px 8px;
+    background: transparent;
+}
+

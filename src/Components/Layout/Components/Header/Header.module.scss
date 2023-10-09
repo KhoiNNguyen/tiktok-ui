@@ -9,7 +9,7 @@
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     display: flex;
     justify-content: center;
-    background-color: #333;
+    background-color: var(--dark);
 }
 
 .inner {
@@ -102,3 +102,12 @@
     font-size: 1.4rem;
     color:var(--gray)
 }
+
+.more-btn{
+    color:#fff;
+    font-size:2rem;
+    margin-left: 28px;
+    padding: 4px 8px;
+    background: transparent;
+}
+
