@@ -5,27 +5,28 @@ import Following from '~/Pages/Following/Index';
 import Profile from '~/Pages/Profile';
 import Upload from '~/Pages/Upload';
 import Search from '~/Pages/Search/Index';
+import routes from '~/config/routes';
 
 const publicRoutes = [
     {
-        path: '/',
+        path: routes.home,
         component: Home,
     },
     {
-        path: '/following',
+        path: routes.following,
         component: Following,
     },
     {
-        path: '/:nickname',
+        path: routes.profile,
         component: Profile,
     },
     {
-        path: '/upload',
+        path: routes.upload,
         component: Upload,
         layout: HeaderOnly,
     },
     {
-        path: '/search',
+        path: routes.search,
         component: Search,
         layout: null,
     },

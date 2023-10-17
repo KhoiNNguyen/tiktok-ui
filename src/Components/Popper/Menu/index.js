@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [] }) {
+function Menu({ children, items = [],hidenClick=false }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
     const renderItem = () => {
@@ -34,6 +34,7 @@ function Menu({ children, items = [] }) {
             interactive
             delay={[0, 1000]}
             offset={[10,10]}
+            hideOnClick={hidenClick}
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -46,7 +47,7 @@ function Menu({ children, items = [] }) {
                                 }}
                             />
                         )}
-                        {renderItem()}
+                        <div className={cx("menu-body")}>{renderItem()}</div>
                     </PopperWrapper>
                 </div>
             )}

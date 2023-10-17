@@ -23,6 +23,8 @@ import Menu from '~/Components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/Components/Icon';
 import Image from '~/Components/Image';
 import Search from '../../Search';
+import { Link } from 'react-router-dom';
+import routes from '~/config/routes';
 
 const cx = classNames.bind(styles);
 const MENU_ITEM = [
@@ -86,14 +88,19 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <img src={image.logo} />
+                    <Link className={cx("logo-link")} to={routes.home}>
+                        <img src={image.logo}/>
+                    </Link>
                 </div>        
                 <Search />
                 <div className={cx('action')}>
                     {currentUser ? (
-                        <>
-                            <Tippy delay={[0, 200]} content="Upload Video">
-                                <button className={cx('action-btn')}>
+                        <div className={cx('icon-header')}>
+                            <Tippy 
+                            delay={[0, 200]} 
+                            content="Upload Video"
+                            >
+                                <button onMouseDown={e=>e.preventDefault()} className={cx('action-btn')}>
                                     <UploadIcon />
                                 </button>
                             </Tippy>
@@ -103,7 +110,7 @@ function Header() {
                             <button className={cx('action-btn')}>
                                 <InboxIcon />
                             </button>
-                        </>
+                        </div>
                     ) : (
                         <>
                             <Button text>Upload</Button>
