@@ -15,12 +15,12 @@ export const UploadIcon = ({ width = '3.2rem', height = '3.2rem', className }) =
     </svg>
 );
 
-export const MessageIcon = ({ width = '2.6rem', height = '2.6rem', className }) => (
+export const MessageIcon = ({ width = '2.9rem', height = '2.9rem', className }) => (
     <svg
         className={className}
         width={width}
         height={height}
-        viewBox="0 0 48 48"
+        viewBox="0 0 55 55"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >

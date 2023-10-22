@@ -1,0 +1,26 @@
+import classNames from 'classnames/bind';
+import PropTypes from 'prop-types';
+
+import Header from '~/layouts/Components/Header';
+import styles from './DefaultLayput.module.scss';
+import Sider from './Sidebar';
+
+const cx = classNames.bind(styles);
+
+function DefaultLayout({ children }) {
+    return (
+        <div className={cx('wrapper')}>
+            <Header />
+            <div className={cx('container')}>
+                <Sider />
+                <div className={cx('content')}>{children}</div>
+            </div>
+        </div>
+    );
+}
+
+DefaultLayout.propTypes={
+    children:PropTypes.node.isRequired,
+}
+
+export default DefaultLayout;

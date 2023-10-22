@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { publicRoutes } from './router';
-import { DefaultLayout } from '~/Components/Layout';
+import { DefaultLayout } from '~/layouts';
 import { Fragment } from 'react';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
                                 path={route.path}
                                 element={
                                     <Layout>
-                                        <Page />
+                                    <Page />
                                     </Layout>
                                 }
                             />

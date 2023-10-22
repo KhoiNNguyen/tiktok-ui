@@ -1,3 +1,4 @@
+
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -24,7 +25,7 @@ import { InboxIcon, MessageIcon, UploadIcon } from '~/Components/Icon';
 import Image from '~/Components/Image';
 import Search from '../../Search';
 import { Link } from 'react-router-dom';
-import routes from '~/config/routes';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 const MENU_ITEM = [
@@ -56,9 +57,7 @@ const MENU_ITEM = [
     },
 ];
 function Header() {
-
     const currentUser = true;
-
 
     const userMenu = [
         {
@@ -88,19 +87,16 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link className={cx("logo-link")} to={routes.home}>
-                        <img src={image.logo}/>
+                    <Link className={cx('logo-link')} to={config.routes.home}>
+                        <img src={image.logo} alt=""/>
                     </Link>
-                </div>        
+                </div>
                 <Search />
                 <div className={cx('action')}>
                     {currentUser ? (
                         <div className={cx('icon-header')}>
-                            <Tippy 
-                            delay={[0, 200]} 
-                            content="Upload Video"
-                            >
-                                <button onMouseDown={e=>e.preventDefault()} className={cx('action-btn')}>
+                            <Tippy delay={[0, 200]} content="Upload Video">
+                                <button onMouseDown={(e) => e.preventDefault()} className={cx('action-btn')}>
                                     <UploadIcon />
                                 </button>
                             </Tippy>
@@ -140,5 +136,7 @@ function Header() {
         </header>
     );
 }
+
+
 
 export default Header;
