@@ -23,7 +23,7 @@ import image from '~/assets/image';
 import Menu from '~/Components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/Components/Icon';
 import Image from '~/Components/Image';
-import Search from '../../Search';
+import Search from '../Search';
 import { Link } from 'react-router-dom';
 import config from '~/config';
 

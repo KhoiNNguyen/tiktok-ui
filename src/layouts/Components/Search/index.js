@@ -2,39 +2,40 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/Components/Popper';
-import AccountItem from '~/Components/AccountItem';
+
 import { SearchIcon } from '~/Components/Icon';
 import classNames from 'classnames/bind';
 import styles from './Search.modual.scss';
 import { useEffect, useRef, useState } from 'react';
 import { useDebounced } from '~/Components/hooks';
 import * as searchServices from '~/Services/SearchService'
+import ListSearch from './ListSearch';
 
 const cx = classNames.bind(styles);
 
 function Search() {
     const [searchResult, setSearchResult] = useState([]);
     const [searchValue, setSearchValue] = useState('');
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const inputRef = useRef();
 
-    const Debounced = useDebounced(searchValue, 500);
+    const DebouncedValue = useDebounced(searchValue, 500);
 
     useEffect(() => {
-        if (!Debounced.trim()) {
+        if (!DebouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
         
         const fetchApi = async () => {
             setLoading(true);
-            const result=await searchServices.search(Debounced);
+            const result=await searchServices.search(DebouncedValue);
             setSearchResult(result);
             setLoading(false);
             };
             fetchApi();
-        }, [Debounced]);
+        }, [DebouncedValue]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -66,9 +67,7 @@ function Search() {
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                         <PopperWrapper>
                             <h4 className={cx('search-title')}>You me like</h4>
-                            {searchResult.map((result) => {
-                                return <AccountItem data={result} key={result.id} />;
-                            })}
+                            <ListSearch searchResult={searchResult} />
                         </PopperWrapper>
                     </div>
                 )}
