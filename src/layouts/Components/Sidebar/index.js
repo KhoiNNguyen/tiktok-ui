@@ -16,7 +16,7 @@ function Sider() {
                 <MenuItem title="Following" to={config.routes.following} icon={<UserGroupIcon />} activeIcon={<UserGroupActiveIcon />} />
                 <MenuItem title="Live" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
-            <SuggestedAccount lable="Các tài khoản đang follow" />
+            <SuggestedAccount lable="Following accounts" />
         </aside>
 
     )
